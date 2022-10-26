@@ -1,3 +1,13 @@
-# FROM node:16.14-alpine
-# WORKDIR /app-frontend
-#  ...
+FROM node:16.14-alpine
+ 
+WORKDIR /app-frontend
+
+COPY . /app-frontend
+
+RUN npm install 
+
+EXPOSE 3000
+
+ENTRYPOINT [ "npm" ]
+
+CMD [ "start" ]
