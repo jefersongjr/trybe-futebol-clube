@@ -6,6 +6,4 @@ COPY . /app-backend
 
 RUN npm install
 
-RUN npx tsc
-
 CMD ["npm", "run", "dev"]
