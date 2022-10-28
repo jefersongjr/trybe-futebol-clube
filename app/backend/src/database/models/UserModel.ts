@@ -16,6 +16,10 @@ User.init({
     primaryKey: true,
     autoIncrement: true,
   },
+  username: {
+    type: STRING,
+    allowNull: false,
+  },
   role: {
     type: STRING,
     allowNull: false,
