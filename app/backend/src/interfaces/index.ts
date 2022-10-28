@@ -5,3 +5,8 @@ export interface IUser {
     email: number,
     password: string
   }
+
+  export interface ILogin {
+    email: string,
+    password: string
+  }
