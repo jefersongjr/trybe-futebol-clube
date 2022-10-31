@@ -15,8 +15,14 @@ export class UserService {
 
         if (!validatePass) throw new ThrowException(401, 'Incorrect email or password');
 
-
-        const token = tokenGenerate.makeToken(user);
+        const { role } = user;
+        const token = tokenGenerate.makeToken({email, role });
         return token;
+    }
+
+    public getLoginValidate = async (token: string | undefined) => {
+     if (!token) throw new ThrowException(401, 'Token invalid');
+     const user = await tokenGenerate.validateToken(token);
+     return user;
     }
 }
