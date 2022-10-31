@@ -8,6 +8,7 @@ export class UserService {
         if (!email || !password) throw new ThrowException(400, 'All fields must be filled');
 
         const user = await User.findOne({ where: { email }})
+        
 
         if (!user) throw new ThrowException(401, 'Incorrect email or password');
         
