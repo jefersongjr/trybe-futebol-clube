@@ -14,8 +14,12 @@ export class TeamController {
     }
 
       public getTeamById = async (req: Request, res: Response, next: NextFunction) => {
+       try {
         const { id } = req.params;
         const team = await this.teamService.getById(id);
         return res.status(200).json(team);  
+       } catch (error) {
+        next(error)
+       }
     }
 }

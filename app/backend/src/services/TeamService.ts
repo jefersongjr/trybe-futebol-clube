@@ -9,7 +9,7 @@ export class TeamService {
 
     public getById = async (id: string) => {
         const team = await Team.findByPk(id);  
-        if(!team) throw new ThrowException(401, 'Team not exists ')  
+        if(!team) throw new ThrowException(401, 'Team not exists')  
         console.log(id)    
         return team;
     }
