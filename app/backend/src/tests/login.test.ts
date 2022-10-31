@@ -5,7 +5,6 @@ import chaiHttp = require('chai-http');
 import * as bcrypt from 'bcryptjs';
 
 import { app } from '../app';
-import Example from '../database/models/ExampleModel';
 
 import { Response } from 'superagent';
 import User from '../database/models/UserModel';
@@ -15,32 +14,6 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('testando o EndPoint "/login"', () => {
-  /**
-   * Exemplo do uso de stubs com tipos
-   */
-
-  // let chaiHttpResponse: Response;
-
-  // before(async () => {
-  //   sinon
-  //     .stub(Example, "findOne")
-  //     .resolves({
-  //       ...<Seu mock>
-  //     } as Example);
-  // });
-
-  // after(()=>{
-  //   (Example.findOne as sinon.SinonStub).restore();
-  // })
-
-  // it('...', async () => {
-  //   chaiHttpResponse = await chai
-  //      .request(app)
-  //      ...
-
-  //   expect(...)
-  // });
-
   describe('quando a requisição for feita corretamente', () => {
     const user = {
       username: 'Admin',
