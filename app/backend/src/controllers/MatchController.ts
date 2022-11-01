@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction, response } from "express";
 import { MatchService } from '../services/MatchService';
 
 
@@ -8,9 +8,11 @@ export class MatchController {
     constructor() {
         this.MatchService = new MatchService();
     }
-
-    public getAllMatches = async (req: Request, res: Response, next: NextFunction) => {   
-        const matches = await this.MatchService.getMatches();
-        return res.status(200).json(matches);  
+    
+    public getMatchByTherm = async (req: Request, res: Response, next: NextFunction) => {  
+        const {inProgress} = req.query 
+        console.log(inProgress)
+        const Response = await this.MatchService.getMatches(inProgress);
+        return res.status(200).json(Response);  
     }
 }
