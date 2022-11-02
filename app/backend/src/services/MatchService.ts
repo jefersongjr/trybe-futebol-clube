@@ -23,11 +23,13 @@ export class MatchService {
     if(!homeTeam || !awayTeam || !homeTeamGoals || !awayTeamGoals){
       throw new ThrowException(401, 'Insert all values');
     }
-    const team1 = await Team.findOne({ where: {id: homeTeam }});
-    const team2 = await Team.findAll({});
-    const validate = team2.some((x) => x.id === awayTeam)
-    if(!validate) throw new ThrowException(404, 'There is no team with such id!');
-    if(homeTeam === awayTeam) throw new ThrowException(422, 'It is not possible to create a match with two equal teams');
+    const teams = await Team.findAll({});
+    const validate1 = teams.some((x) => x.id === awayTeam);
+    const validate2 = teams.some((x) => x.id === homeTeam);
+    if (!validate1 || !validate2) {
+      throw new ThrowException(404, 'There is no team with such id!');
+    }
+    if (homeTeam === awayTeam) throw new ThrowException(422, 'It is not possible to create a match with two equal teams');
     const newMatch = Match.create({homeTeam , awayTeam ,homeTeamGoals , awayTeamGoals, inProgress: true })
     return newMatch;
   }
