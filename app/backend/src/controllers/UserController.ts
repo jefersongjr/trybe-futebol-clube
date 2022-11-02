@@ -19,4 +19,15 @@ export class UserController {
            next(error) ;
         }
     }
+    public validateLogin = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+        const token = req.headers.authorization;
+        const x = await this.userService.getLoginValidate(token);
+        const {role} = x.payload
+        console.log(role)
+        return res.status(200).json({ role: role });  
+        } catch (error) {
+           next(error) ;
+        }
+}
 }

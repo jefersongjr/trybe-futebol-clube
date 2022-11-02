@@ -2,6 +2,7 @@ import User from '../database/models/UserModel'
 import { tokenGenerate } from '../utils/tokenGenerate';
 import ThrowException from '../middlewares/exceptions/ThrowException';
 import * as bcrypt from 'bcryptjs'
+import { Jwt } from 'jsonwebtoken';
 
 export class UserService {
     public getLogin = async ( email: string , password: string ) => {
@@ -16,14 +17,14 @@ export class UserService {
 
         if (!validatePass) throw new ThrowException(401, 'Incorrect email or password');
 
-        const { role } = user;
-        const token = tokenGenerate.makeToken({email, role });
+        const { username, role } = user;
+        const token = tokenGenerate.makeToken(username, role, email );
         return token;
     }
 
     public getLoginValidate = async (token: string | undefined) => {
      if (!token) throw new ThrowException(401, 'Token invalid');
      const user = await tokenGenerate.validateToken(token);
-     return user;
+     return user as Jwt;
     }
 }

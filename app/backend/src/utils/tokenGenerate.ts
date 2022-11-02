@@ -1,14 +1,15 @@
 import * as jwt from 'jsonwebtoken';
 import ThrowException from '../middlewares/exceptions/ThrowException';
+import { IUser } from '../interfaces';
 
 export class tokenGenerate {
-    static makeToken = (payload: Object | string) => {
+    static makeToken = (username: string , role: string, email: string) => {
         const jwtConfig: jwt.SignOptions = {
             expiresIn: '7d',
             algorithm : 'HS256'
         }
-        console.log(payload)
-        const token = jwt.sign( payload, 'jwt_secret', jwtConfig);
+        const token = jwt.sign( { username , role, email}, 'jwt_secret', jwtConfig);
+        console.log('aqyu')
         return token;
      }
 
@@ -18,7 +19,8 @@ export class tokenGenerate {
         } 
         if (!token) throw new ThrowException(401, 'Token must be a valid token')
         try {
-            const introspection = jwt.verify(token, 'jwt_secret', jwtConfig);
+            const introspection = jwt.verify(token, 'jwt_secret',jwtConfig);
+            console.log(introspection);
             return introspection;
         } catch (error) {
             throw new ThrowException(401, 'Token must be a valid token');

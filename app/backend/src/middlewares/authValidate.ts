@@ -4,6 +4,7 @@ import  ThrowException from '../middlewares/exceptions/ThrowException';
 
 export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;
+    console.log(token)
     try {
         const user = await tokenGenerate.validateToken(token);
         if (!user) throw new ThrowException(401, 'Token must be a valid token');

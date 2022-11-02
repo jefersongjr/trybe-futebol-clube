@@ -2,8 +2,9 @@ export interface IUser {
     id?: number,
     username: string,
     role: string,
-    email: number,
-    password: string
+    email: string,
+    password?: string
+    payload?: Object | string
   }
 
   export interface ILogin {
