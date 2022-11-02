@@ -33,4 +33,12 @@ export class MatchService {
     const newMatch = Match.create({homeTeam , awayTeam ,homeTeamGoals , awayTeamGoals, inProgress: true })
     return newMatch;
   }
+
+  public changeProgress = async (id: number) => {
+    const newStatus = await Match.update(
+      { inProgress: false },
+      { where: { id } }
+    );
+    return newStatus;
+  }
 }

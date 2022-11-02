@@ -7,6 +7,8 @@ const matchRouter = Router();
 
 matchRouter.get('/matches', matchController.getMatchByTherm);
 matchRouter.post('/matches',authMiddleware, matchController.addNewMatch);
+matchRouter.patch('/matches/:id/finish', matchController.changeStatus);
+
 
 
 
