@@ -8,11 +8,21 @@ export class MatchController {
     constructor() {
         this.MatchService = new MatchService();
     }
-    
+
     public getMatchByTherm = async (req: Request, res: Response, next: NextFunction) => {  
         const {inProgress} = req.query 
-        console.log(inProgress)
         const Response = await this.MatchService.getMatches(inProgress);
         return res.status(200).json(Response);  
     }
+
+    public addNewMatch = async (req: Request, res: Response, next: NextFunction) => {  
+        try {
+            const {homeTeam , awayTeam ,homeTeamGoals , awayTeamGoals } = req.body;
+            const newMatch = await this.MatchService.addMatch(homeTeam , awayTeam ,homeTeamGoals , awayTeamGoals);
+            return res.status(201).json(newMatch); 
+        } catch (error) {
+            next(error);
+        } 
+    }
+
 }

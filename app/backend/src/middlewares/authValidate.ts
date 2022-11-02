@@ -6,7 +6,7 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
     const token = req.headers.authorization;
     try {
         const user = await tokenGenerate.validateToken(token);
-        if (!user) throw new ThrowException(401, 'Expired or invalid token');
+        if (!user) throw new ThrowException(401, 'Token must be a valid token');
         res.status(200).json([req.body])
 
     } catch (error) {  

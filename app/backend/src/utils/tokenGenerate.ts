@@ -16,12 +16,12 @@ export class tokenGenerate {
         const jwtConfig: jwt.VerifyOptions= {
             complete : true
         } 
-        if (!token) throw new ThrowException(401, 'Token invalid')
+        if (!token) throw new ThrowException(401, 'Token must be a valid token')
         try {
             const introspection = jwt.verify(token, 'jwt_secret', jwtConfig);
             return introspection;
         } catch (error) {
-            throw new ThrowException(401, 'Expired or invalid token');
+            throw new ThrowException(401, 'Token must be a valid token');
         }
      }
 }
