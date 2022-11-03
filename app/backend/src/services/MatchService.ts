@@ -35,6 +35,8 @@ export class MatchService {
   }
 
   public changeProgress = async (id: number) => {
+    const match = await Match.findOne({where: {id: id}});
+    if (!match)  throw new ThrowException(404, 'There is no match with such id!');
     const newStatus = await Match.update(
       { inProgress: false },
       { where: { id } }
