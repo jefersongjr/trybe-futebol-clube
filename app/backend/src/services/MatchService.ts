@@ -43,4 +43,14 @@ export class MatchService {
     );
     return newStatus;
   }
+
+  public changeMatchGoals = async (id: number, homeTeamGoals: number, awayTeamGoals: number) => {
+    const match = await Match.findOne({where: {id: id}});
+    if (!match)  throw new ThrowException(404, 'There is no match with such id!');
+    const newStatus = await Match.update(
+      { homeTeamGoals: homeTeamGoals, awayTeamGoals: awayTeamGoals },
+      { where: { id } }
+    );
+    return newStatus;
+  }
 }

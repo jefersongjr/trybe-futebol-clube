@@ -35,4 +35,15 @@ export class MatchController {
         } 
     }
 
+    public changeMatch = async (req: Request, res: Response, next: NextFunction) => {  
+        try {
+            const { homeTeamGoals, awayTeamGoals } = req.body
+            const { id } = req.params;
+            await this.MatchService.changeMatchGoals(parseInt(id),homeTeamGoals, awayTeamGoals);
+            return res.status(200).json({message: 'Finished'}); 
+        } catch (error) {
+            next(error);
+        } 
+    }
+
 }
