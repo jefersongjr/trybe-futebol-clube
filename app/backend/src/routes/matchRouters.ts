@@ -5,9 +5,9 @@ import { MatchController } from '../controllers/MatchController';
 const matchController = new MatchController();
 const matchRouter = Router();
 
-matchRouter.get('/matches', matchController.getMatchByTherm);
 matchRouter.post('/matches',authMiddleware, matchController.addNewMatch);
-matchRouter.patch('/matches/:id/finish', matchController.changeStatus);
+matchRouter.get('/matches', matchController.getMatchByTherm);
+matchRouter.patch('/matches/:id/finish',authMiddleware, matchController.changeStatus);
 
 
 
