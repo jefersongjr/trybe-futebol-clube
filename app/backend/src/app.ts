@@ -3,6 +3,7 @@ import { userRouter } from './routes/userRouter';
 import errorMiddleware from './middlewares/errorMiddleware';
 import { teamsRouter } from './routes/teamRouters';
 import { matchRouter } from './routes/matchRouters';
+import { leaderBoardRouter } from './routes/leaderBoardRouters';
 
 
 class App {
@@ -30,7 +31,8 @@ class App {
     this.app.use(matchRouter);
     this.app.use(userRouter);
     this.app.use(teamsRouter);
-
+    this.app.use(leaderBoardRouter);
+    
 
 
 
