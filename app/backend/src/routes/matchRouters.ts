@@ -12,6 +12,4 @@ matchRouter.patch('/matches/:id/finish',authMiddleware, matchController.changeSt
 
 
 
-
-
 export { matchRouter };

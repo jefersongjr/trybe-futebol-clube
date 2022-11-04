@@ -1,8 +1,7 @@
 import Team from '../database/models/TeamModel';
 import Match from '../database/models/MatchModel'
 import ThrowException from '../middlewares/exceptions/ThrowException';
-import Query = require('mysql2/typings/mysql/lib/protocol/sequences/Query');
-console.log(Match)
+
 export class MatchService {
     public getMatches = async ( therm: any) => {
       const matches = await Match.findAll({
