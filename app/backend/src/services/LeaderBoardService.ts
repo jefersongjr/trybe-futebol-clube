@@ -16,7 +16,8 @@ export class LeaderBoardService {
     AS efficiency
     FROM TRYBE_FUTEBOL_CLUBE.teams AS teams
     INNER JOIN TRYBE_FUTEBOL_CLUBE.matches AS matches ON teams.id = matches.home_team
-    group by team_name
+    WHERE in_progress = 0
+    GROUP BY team_name
     Order by (SUM(IF(home_team_goals > away_team_goals, 1, 0))) * 3 + SUM(IF(home_team_goals = away_team_goals, 1, 0)) DESC,
     SUM(home_team_goals) - SUM(away_team_goals) DESC, SUM(home_team_goals) DESC, SUM(away_team_goals) DESC;`
 const [homeMatchs]: any = await Team.sequelize?.query(queryHome);

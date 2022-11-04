@@ -4,7 +4,7 @@ export interface IUser {
     role: string,
     email: string,
     password?: string
-    payload?: Object | string
+   // payload?: Object | string
   }
 
   export interface ILogin {
