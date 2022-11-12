@@ -18,6 +18,7 @@ export class tokenGenerate {
         if (!token) throw new ThrowException(401, 'Token must be a valid token')
         try {
             const introspection = jwt.verify(token, 'jwt_secret',jwtConfig);
+            console.log(introspection)
             return introspection;
         } catch (error) {
             throw new ThrowException(401, 'Token must be a valid token');

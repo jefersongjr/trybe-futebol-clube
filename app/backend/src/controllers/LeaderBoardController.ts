@@ -17,4 +17,13 @@ export class LeaderBoardController {
            next(error) ;
         }
 }
+
+public getAwayLeader = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+    const awayMatchs = await this.leaderBoardService.getLeaderAway();
+    return res.status(200).json(awayMatchs);  
+    } catch (error) {
+       next(error) ;
+    }
+}
 }
