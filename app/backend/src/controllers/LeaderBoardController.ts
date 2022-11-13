@@ -26,4 +26,13 @@ public getAwayLeader = async (req: Request, res: Response, next: NextFunction) =
        next(error) ;
     }
 }
+
+public getLeaderBoard = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+    const allMatchs = await this.leaderBoardService.getLeader();
+    return res.status(200).json(allMatchs);  
+    } catch (error) {
+       next(error) ;
+    }
+}
 }

@@ -1,3 +1,4 @@
+import { queryAll } from '../utils/querysLeaderBoard';
 import Team from '../database/models/TeamModel'
 
 export class LeaderBoardService { 
@@ -48,5 +49,11 @@ return homeMatchs
 
     return awayMatchs;
 
+    }
+
+    public getLeader = async () => {
+    const [allMatchs]: any = await Team.sequelize?.query(queryAll);
+
+    return allMatchs;
     }
 }
