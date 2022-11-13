@@ -19,7 +19,7 @@ export class MatchService {
           return matches
   }
   public addMatch = async (homeTeam: number, awayTeam: number, homeTeamGoals: number, awayTeamGoals:number) => {
-    if(!homeTeam || !awayTeam || !homeTeamGoals || !awayTeamGoals){
+    if(!homeTeam || !awayTeam || homeTeamGoals === undefined || awayTeamGoals === undefined){
       throw new ThrowException(401, 'Insert all values');
     }
     const teams = await Team.findAll({});
