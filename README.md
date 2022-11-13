@@ -15,5 +15,12 @@ O Back End do projeto foi implementado utilizando TDD (Test-driven development).
 
 ## :computer: Skills Desenvolvidas:
 
-  * Desenvolver uma API de um CRUD (Create, Read, Update e Delete) de palestrantes (talkers).
-  * Desenvolver alguns endpoints que irão ler e escrever em um arquivo utilizando o módulo fs.
+ 
+*  Criar classes
+*  Utilizar conceitos de POO
+*  Utilizar princípios de SOLID
+*  Desenvolver uma aplicação Express.js com TypeScript
+*   Utilizar o Sequelize.js com TypeScript
+ *   Criar uma API RESTful
+  *  Implementar testes de integração
+
