@@ -9,9 +9,19 @@ O Back End do projeto foi implementado utilizando TDD (Test-driven development).
 
 ## 🛠️ Construído com: 
 
- * Node.js
- * Express.js
- * Docker
+ * TypeScript
+  * Node.js
+    * Express.js
+ * Sequelize.js
+  * MySQL
+  * React
+  *  Mocha.js
+ *  Chai.js
+ *  Sinon.js
+  * Docker
+  * OOP (Object-Oriented Programming)
+  * SOLID
+
 
 ## :computer: Skills Desenvolvidas:
 
