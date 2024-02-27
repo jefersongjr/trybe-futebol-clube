@@ -11,7 +11,7 @@ O Back End do projeto foi implementado utilizando TDD (Test-driven development).
 
  * TypeScript
   * Node.js
-    * Express.js
+* Express.js
  * Sequelize.js
   * MySQL
   * React
