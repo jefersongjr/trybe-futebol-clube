@@ -1,5 +1,7 @@
 # Trybe Futebol Clube :soccer:
 
+![Logo projeto](https://raw.githubusercontent.com/jefersongjr/jefersongjr.github.io/main/my-portfolio/src/assets/imgs/projectsPreview/tfc.png)
+
 ##  🚀📋 Sobre:
 
 **Trybe Futebol Clube :soccer:**  foi um projeto desenvolvido por mim ,[Jeferson Gomes](https://www.linkedin.com/in/jefersongjr/),
